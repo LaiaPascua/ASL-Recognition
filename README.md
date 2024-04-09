@@ -19,7 +19,8 @@ Our dataset consists of 70 images of 26 characters that represent one letter in 
 ## LeNet
 First I tried to solve the problem by a simple image classification model. I based my architecture in the LeNet-5 architecture but instead of parting from grayscale images I used RGB images.
 ![LeNet-5 Architecture](readme_images/LeNet-5.png) 
-The final architecture will consist of the following layers:
+
+The final architecture consists of the following layers:
 |    | Layer       | Parameters                             | Input            | Output           |
 |----|-------------|----------------------------------------|------------------|------------------|
 | 1  | Convolution | Conv2d(3, 6, kernel_size=5, padding=2) | (batch,3,32,32)  | (batch,6,32,32)  |
@@ -41,10 +42,16 @@ Also I tried a different approach. Instead of training a model from images, usin
 
 ### MediaPipe
 MediaPipe is a module developed by google that includes several machine learning capabilities, one of them being [hand landmark recognition](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker#get_started)
+
 With this tool we are able to extract the (x,y,z) coordenates for 21 hand points.
 ![MediaPîpe Point extraction](readme_images/Mediapipe_Points.png)
+
 So by having our dataset processed by this tool we would get something like this:
 ![MediaPîpe Point extraction example](readme_images/Mediapipe_Example.png)
+
+### PointNet
+To interpretate the cloud of points we used the PointNet architecture. This architecture enables to understand cloud of points so the result is invariant to rotations.
+![PointNet Architecture](readme_images/pointnet_architecture.jpg)
 
 
 
